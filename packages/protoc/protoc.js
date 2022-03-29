@@ -47,7 +47,7 @@ async function main() {
         ...process.argv.slice(2),
     ];
 
-    if (includePath) {
+    if (includePath && process.env.INCLUDE_WELL_KNOWN_TYPES) {
         // add the "include" directory of the installed protoc to the proto path
         // do this last, otherwise it can shadow a user input
         args.push("--proto_path", includePath);
